@@ -5,10 +5,14 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/node:14.15.5
+      - image: "cimg/node:14.15"
     steps:
       - node/install
       - checkout
+      - run:
+          name: Install npm 6.14.11
+          command: |
+            npm install -g npm@6.14.11
       - run:
           name: Front-End Install
           command: |
